@@ -29,22 +29,7 @@ class LinkedList:
             itr = itr.next
         
         return length
-
-    # def print(self):
-        # if self.head is None:
-            # print('Empty List!')
-            # return
-# 
-        # result = ''
-        # node = self.head
-# 
-        # while node.next:
-            # result += str(node.data) + '-->'
-            # node = node.next
-# 
-        # print(result + str(node.data))
-        # return
-# 
+ 
     def insert_at_begining(self, data):
         node = Node(data, self.head)
         self.head = node
@@ -92,16 +77,73 @@ class LinkedList:
         
         node.next = node.next.next 
 
+    def insert_at(self, index, data):
+        if index < 0 or index > len(self):
+            raise Exception('Invalid index!')
+
+        if index == 0:
+            self.insert_at_begining(data)
+            return
+        
+        count = 0
+        prev_node = self.head
+
+        while count != index - 1:
+            count += 1
+            prev_node = prev_node.next
+        
+        node = Node(data, prev_node.next)
+        prev_node.next = node
+
+    def insert_after_value(self, value , data_to_insert):
+        if self.head is None:
+            raise Exception('Empty list!')
+        
+        current_node = self.head
+        
+        while current_node:
+            if current_node.data == value:
+                node = Node(data_to_insert, current_node.next)
+                current_node.next = node
+                return
+
+            current_node = current_node.next
+        
+        raise Exception(f'Value <{value}> not found!')
+
+    def remove_by_value(self, data):
+        if self.head is None:
+            return
+
+        if self.head.data == data:
+            self.remove_at_begining()
+            return
+
+        prev_node = self.head
+        while prev_node.next:
+            if prev_node.next.data == data:
+                prev_node.next = prev_node.next.next
+                return
+
+            prev_node = prev_node.next
+
+        return
+
+
 
 if __name__== '__main__':
-    l = LinkedList()
-
-    l.insert_at_begining(1)
-    l.insert_at_begining(3)
-    l.insert_at_end(45)
-
-    l.insert_values(['apple','orange','strawberry', 'lemons', 'grapes'])
-
-    l.remove_at(5)
-
-    print(l)
+    ll = LinkedList()
+    ll.insert_values(["banana","mango","grapes","orange"])
+    print(ll)
+    ll.remove_by_value("orange") # remove orange from linked list
+    print(ll)
+    ll.remove_by_value("figs")
+    print(ll)
+    ll.remove_by_value("banana")
+    print(ll)
+    ll.remove_by_value("mango")
+    print(ll)
+    ll.remove_by_value("apple")
+    print(ll)
+    ll.remove_by_value("grapes")
+    print(ll)
