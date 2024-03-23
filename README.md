@@ -5,5 +5,7 @@
 Implementation of different data structures in Python.
 
 ### Content:
-- [Linked lists](./linked-lists/linked-lists.py)
-- [Doubly linked lists](./linked-lists/doubly-linked-lists.py)
+- [Linked lists](./linked_lists/linked_lists.py)
+- [Doubly linked lists](./linked_lists/doubly_linked_lists.py)
+- [Hash table (with chaining)](./hash_tables/hash_table_chaining.py)
+- [Hash table (with linear probing)](./hash_tables/hash_table_linear_probing.py)
