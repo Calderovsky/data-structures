@@ -6,3 +6,4 @@ Implementation of different data structures in Python.
 
 ### Content:
 - [Linked lists](./linked-lists/linked-lists.py)
+- [Doubly linked lists](./linked-lists/doubly-linked-lists.py)

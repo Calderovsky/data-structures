@@ -95,7 +95,7 @@ class LinkedList:
         node = Node(data, prev_node.next)
         prev_node.next = node
 
-    def insert_after_value(self, value , data_to_insert):
+    def insert_after_value(self, value, data_to_insert):
         if self.head is None:
             raise Exception('Empty list!')
         
